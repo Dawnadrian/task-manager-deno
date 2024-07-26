@@ -11,5 +11,5 @@ the main technical parts I'll be learning to incorporate and use are the followi
 7. using different External APIs, HTTP methods, and clients, Async\Await,
 8. practicing documentation
 
-   ** The following project will be full of mistakes, but hey- at least it would be interesting to discover how bad a person can be in the beginning :) **
+   ** The following project will be full of mistakes. but hey, there is no 'I' in quitting! (actually, there are 2 so at least I won't be alone)  :) **
    

@@ -1,8 +1,8 @@
 import { Task } from "./task.ts";
-export class task_manager {
+export class TaskManager {
 
     private tasks: Task[] = [];
-    private filePath: string = "./src/tasks/tasks.json";
+    private filePath: string = "./tasks.json";
 
     constructor(){
         this.loadTasks();
@@ -27,6 +27,7 @@ export class task_manager {
     
      // adding a new task from the user
       addTask( title: string, descritption: string): void {
+        console.log("current tasks: ", this.tasks)
         const newId = this.tasks.length + 1;
         const newTask = new Task(newId,title,descritption);
         this.tasks.push(newTask);
@@ -43,12 +44,13 @@ export class task_manager {
         } catch(error) {
             console.error("error saving tsks :" , error);
         }
+        console.log("new task saved");
      }
 
 
      // prints the tasks and their status
 
-     printTsks(): void {
+     printTasks(): void {
         this.tasks.forEach(task => {
             console.log(`task ID:${task.id} - ${task.title} - ${task.description} [${task.completed ? "completed" : "pending"}]`);
         });
@@ -57,7 +59,7 @@ export class task_manager {
     
 
      // deletes the tasks:
-     private async deleteTask(idToBeDeleted: number): Promise<void> {
+      async deleteTask(idToBeDeleted: number): Promise<void> {
         try {
         const taskToBeDeletedData = await Deno.readTextFile(this.filePath);
         const taskArray = JSON.parse(taskToBeDeletedData) as Task[];
